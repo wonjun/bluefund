@@ -1,2 +1,2 @@
-class Creator < ActiveRecord::Base
+class Creator < User
 end
