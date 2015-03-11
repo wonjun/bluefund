@@ -1,4 +1,4 @@
-Crowdfunding Application in Rails
+Crowdfunding Application for School Funds
 ===
 [![Code Climate](https://codeclimate.com/repos/54ff8a73e30ba07ed4001cf1/badges/953707bd2b8df410e162/gpa.svg)](https://codeclimate.com/repos/54ff8a73e30ba07ed4001cf1/feed)
 
