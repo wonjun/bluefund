@@ -2,6 +2,8 @@ Crowdfunding Application in Rails
 ===
 [![Code Climate](https://codeclimate.com/repos/54ff8a73e30ba07ed4001cf1/badges/953707bd2b8df410e162/gpa.svg)](https://codeclimate.com/repos/54ff8a73e30ba07ed4001cf1/feed)
 
+[ ![Codeship Status for wonjun/bluefund](https://codeship.com/projects/97bb7750-a9b8-0132-77d1-427bb4181a39/status?branch=master)](https://codeship.com/projects/67785)
+
 Getting Started
 ---------------
 
