@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-
   # The state machine diagram is here: TODO
   state_machine initial: :draft do
     state :pending
@@ -9,27 +8,27 @@ class Project < ActiveRecord::Base
     state :finished
 
     event :submit do
-      transition :draft => :pending
+      transition draft: :pending
     end
 
     event :crowdfund do
-      transition :pending => :crowdfunding
+      transition pending: :crowdfunding
     end
 
     event :pause do
-      transition :crowdfunding => :paused
+      transition crowdfunding: :paused
     end
 
     event :resume do
-      transition :paused => :crowdfunding
+      transition paused: :crowdfunding
     end
 
     event :reject do
-      transition [ :pending, :crowdfunding, :paused ] => :rejected
+      transition [:pending, :crowdfunding, :paused] => :rejected
     end
 
     event :fund do
-      transition :crowdfunding => :success
+      transition crowdfunding: :success
     end
   end
 end

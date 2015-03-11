@@ -15,7 +15,7 @@ gem "gon"
 gem "kaminari"
 gem "recipient_interceptor"
 gem "simple_form"
-gem "state_machine", :git => 'https://github.com/seuros/state_machine.git'
+gem "state_machine", git: 'https://github.com/seuros/state_machine.git'
 gem "turbolinks"
 
 # Frontend
