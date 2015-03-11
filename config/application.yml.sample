@@ -4,8 +4,8 @@ SECRET_KEY_BASE: c81614bba012ecbb87993b7c6b4ecdaf16af2ac72be065a8a6df03fa953952a
 DEVISE_SECRET_KEY: 8d5e9ac16d789a47ac3871327e97b8d022c3a1b45341be34d61be3608421a0cefbd40bf28ad8a7b7df9202017888292a8287fd847cf1eaf24b33a5acc51e0c56
 
 # Email config
-SMTP_ADDRESS: <your smtp address>
-SMTP_DOMAIN: <your domain>
+SMTP_ADDRESS: smtp.mandrillapp.com
+SMTP_DOMAIN: heroku.com
 SMTP_PASSWORD: <api_key>
 SMTP_USERNAME: <user_name>
 
