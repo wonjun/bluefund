@@ -1,5 +1,6 @@
-New
+Crowdfunding Application in Rails
 ===
+[![Code Climate](https://codeclimate.com/repos/54ff8a73e30ba07ed4001cf1/badges/953707bd2b8df410e162/gpa.svg)](https://codeclimate.com/repos/54ff8a73e30ba07ed4001cf1/feed)
 
 Getting Started
 ---------------
