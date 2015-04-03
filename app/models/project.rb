@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
+  belongs_to :creator
   # The state machine diagram is here: TODO
+  # This statemachine models the flow of a grant from the draft stage to the finished stage
   state_machine initial: :draft do
     state :pending
     state :crowdfunding
