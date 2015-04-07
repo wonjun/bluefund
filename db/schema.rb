@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403083118) do
+ActiveRecord::Schema.define(version: 20150407232534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20150403083118) do
   create_table "crowdfunds", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "project_id"
   end
+
+  add_index "crowdfunds", ["project_id"], name: "index_crowdfunds_on_project_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,23 +30,35 @@ ActiveRecord::Schema.define(version: 20150403083118) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.integer  "crowdfund_id"
   end
+
+  add_index "payments", ["crowdfund_id"], name: "index_payments_on_crowdfund_id", using: :btree
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
   create_table "project_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_tags_projects", id: false, force: :cascade do |t|
+    t.integer "project_id",     null: false
+    t.integer "project_tag_id", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "state"
     t.integer  "creator_id"
+    t.integer  "location_id"
   end
 
   add_index "projects", ["creator_id"], name: "index_projects_on_creator_id", using: :btree
+  add_index "projects", ["location_id"], name: "index_projects_on_location_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -64,4 +79,9 @@ ActiveRecord::Schema.define(version: 20150403083118) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "crowdfunds", "projects"
+  add_foreign_key "payments", "crowdfunds"
+  add_foreign_key "payments", "users"
+  add_foreign_key "projects", "locations"
+  add_foreign_key "projects", "users", column: "creator_id"
 end
